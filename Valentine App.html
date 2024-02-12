@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Will You Be My Valentine?</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+
+    .container {
+      text-align: center;
+      margin-top: 100px;
+    }
+
+    h1 {
+      color: #e91e63;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      margin: 10px;
+      background-color: #e91e63;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    .message {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2rem;
+      color: #e91e63;
+      animation: explode 0.5s ease-in-out;
+    }
+
+    @keyframes explode {
+      0% { transform: scale(0); }
+      100% { transform: scale(1); }
+    }
+
+    @media only screen and (max-width: 600px) {
+      .container {
+        margin-top: 50px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      button {
+        padding: 12px 24px;
+        font-size: 1rem;
+      }
+
+      .message {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Will you be my Valentine?</h1>
+    <button id="yesBtn">Yes &#x2665;</button>
+    <button id="noBtn">&#x1F490; No</button>
+  </div>
+  
+  <div class="message" id="message">I love you</div>
+  
+  <script>
+    const yesBtn = document.getElementById('yesBtn');
+    const noBtn = document.getElementById('noBtn');
+    const message = document.getElementById('message');
+
+    yesBtn.addEventListener('click', () => {
+      message.innerHTML = '<iframe src="https://giphy.com/embed/d2VNDNckZ1OQWbN6" width="480" height="366" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/season-4-the-simpsons-4x15-d2VNDNckZ1OQWbN6">via GIPHY</a></p>';
+      message.style.display = 'block';
+      message.classList.add('explosive');
+    });
+
+    noBtn.addEventListener('click', () => {
+      message.innerHTML = '<iframe src="https://giphy.com/embed/vyTnNTrs3wqQ0UIvwE" width="480" height="400" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/theoffice-the-office-tv-frame-toby-vyTnNTrs3wqQ0UIvwE">via GIPHY</a></p>';
+      message.style.display = 'block';
+      message.classList.add('explosive');
+    });
+
+    noBtn.addEventListener('mouseover', () => {
+      const newX = Math.random() * 100 - 50;
+      const newY = Math.random() * 100 - 50;
+      noBtn.style.transform = `translate(${newX}px, ${newY}px)`;
+    });
+  </script>
+</body>
+</html>
